@@ -10,9 +10,7 @@ The OS also includes support for radio transceivers, such as cc2420.
 
 The OS built so it is easy to use and easy to port to other platforms.
 
-More information can be learned at http://mansos.net
-
 Please also read the [CREDITS.txt][] file.
 
-[wiki]: https://github.com/IECS/MansOS/wiki
+[wiki]: https://github.com/edi-riga/MansOS/wiki
 [CREDITS.txt]: CREDITS.txt
