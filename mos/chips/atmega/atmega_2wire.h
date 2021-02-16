@@ -45,19 +45,8 @@
 #define CPU_HZ 1000000L
 #endif
 
-//! I2C acknowledge
-typedef enum {
-  I2C_NO_ACK = 0,
-  I2C_ACK    = 1,
-} i2cAck_t;
-
-//! I2C error
-typedef enum {
-  I2C_OK = 0,
-  I2C_ACK_ERROR = 1,
-  I2C_OTHER = 2,
-} i2cError_t;
-
+// I2C types
+#include <i2c_types.h>
 
 #ifndef TWI_SPEED
 #define TWI_SPEED 100000L
