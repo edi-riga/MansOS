@@ -29,7 +29,7 @@ OBJCOPY = avr-objcopy
 CFLAGS += -DMCU_AVR=1 -mmcu=$(MCU_MODEL)
 CFLAGS += -DCPU_MHZ=$(CPU_MHZ)
 CFLAGS += -g -Wall
-CFLAGS += -mint8
+# CFLAGS += -mint8
 
 # Set up the Atmega BSL port
 BSL ?= avrdude
