@@ -30,7 +30,7 @@
 
 #include <stdtypes.h>
 
-#ifdef PLATFORM_PC
+#if defined(PLATFORM_PC) || defined(PLATFORM_ATMEGA)
 
 // use error code definitions from standard headers
 #include <errno.h>

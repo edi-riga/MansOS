@@ -138,7 +138,7 @@ static void delayTimerCb(void *unused)
     // TPRINTF("mac tx %u bytes, nh=0x%04x\n", delayedDataLength, delayedNexthop);
     // redLedToggle();
     INC_NETSTAT(NETSTAT_RADIO_TX, EMPTY_ADDR);
-#ifndef PLATFORM_ARDUINO
+#ifndef PLATFORM_ATMEGA
     if (lastNexthop != delayedNexthop) {
         amb8420SetDstAddress(delayedNexthop);
         lastNexthop = delayedNexthop;

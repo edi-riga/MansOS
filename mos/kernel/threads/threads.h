@@ -38,7 +38,7 @@
 #ifndef THREAD_STACK_SIZE
 // Note: the minimal sufficient stack size for threads + printf
 // when compiled on gcc 4.6 is 160 bytes!
-#if PLATFORM_ARDUINO
+#if PLATFORM_ATMEGA
 #define THREAD_STACK_SIZE 256
 #else
 #define THREAD_STACK_SIZE 512

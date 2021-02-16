@@ -33,7 +33,7 @@ ARCH = avr
 MCU_MODEL ?= atmega328p # Arduino Duemilanove
 CPU_MHZ ?= 16
 
-CFLAGS += -DPLATFORM_ARDUINO=1
+CFLAGS += -DPLATFORM_ATMEGA=1
 
 #############################################
 # Define platform-specific sources

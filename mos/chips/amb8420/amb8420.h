@@ -76,7 +76,7 @@ typedef enum {
     AMB8420_ADDR_MODE_ADDRNET = 2, // 1 byte addr, 1 byte net
 } AMB8420AddrMode_t;
 
-#if defined PLATFORM_ARDUINO || defined CUSTOM_TIMER_INTERRUPT_HANDLERS
+#if defined PLATFORM_ATMEGA || defined CUSTOM_TIMER_INTERRUPT_HANDLERS
 #define AMB8420_WAIT_FOR_RTS_READY(ok) \
     while (!(ok = (pinRead(AMB8420_RTS_PORT, AMB8420_RTS_PIN) == 0)))
 
