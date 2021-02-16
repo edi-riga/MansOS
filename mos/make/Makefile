@@ -472,6 +472,12 @@ options:
 	@echo
 
 help: targets options
+	
+python_version_full := $(wordlist 2,4,$(subst ., ,$(shell python --version 2>&1)))
+python_version_major := $(word 1,${python_version_full})
+python-serial.python.2 := python-serial
+python-serial.python.3 := python3-serial
+python-serial := ${python-serial.python.${python_version_major}}
 
 setupbase:
-	sudo apt-get install python-wxtools python-ply python-serial
+	sudo apt-get install python-wxtools python-ply ${python-serial}
