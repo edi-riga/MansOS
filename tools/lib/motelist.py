@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 
-import os, sys, threading, time, serial, itertools, urllib2
+import os, sys, threading, time, itertools
+import serial
+try:
+    # For Python 3+
+    from urllib.request import urlopen
+except ImportError:
+    # For Python 2.x
+    from urllib2 import urlopen
+
 import configfile
 
 if os.name == 'posix':
@@ -139,7 +147,6 @@ def getRemoteServers():
         retVal += cfg.getCfgValueAsList("remoteServers")
     except:
         pass
-
     return retVal
     
 class Motelist(object):
@@ -244,7 +251,7 @@ class Motelist(object):
             url = host
         
         try:
-            req = urllib2.urlopen(url + "/ports")
+            req = urlopen(url + "/ports")
             motes = req.read().split("\n")
             for mote in motes:
                 info = mote.split(",")
@@ -357,7 +364,7 @@ class Motelist(object):
         motelist = Motelist.getMotelist(True)
 
         if len(motelist) == 0:
-            print "No attached motes found!"
+            print ("No attached motes found!")
             return
             
         # Prepare table column width
