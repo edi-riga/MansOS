@@ -48,7 +48,7 @@
 
 // important: ADCL must be read before ADCH!
 // See note in the datasheet 23.2, page 251
-#define hplAdcGetVal() (ADCL | (ADCH << 8))
+#define hplAdcGetVal() (ADCL | ((int16_t)ADCH << 8))
 
 // use 6 ADC channels
 #define hplAdcGetChannelCount() (6)
