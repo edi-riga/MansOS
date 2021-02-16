@@ -4,7 +4,11 @@
 
 # Note: characters "[]," are interpreted as meta-symbols and cannot be part of config values!
 
-import ConfigParser, threading
+try:
+    import configparser as ConfigParser     # python3
+except ImportError:
+    import ConfigParser     # python2
+import threading
 
 class ConfigFile(object):
     def __init__(self, filename, defaults = {}, automaticSections = False):
@@ -75,7 +79,7 @@ class ConfigFile(object):
                 for s in split_by_bracket:
                     if len(s):
                         result.append(s.strip(",[").split(","))
-            else:
+            elif value != "":
                 # XXX: this means that comma cannot be part of well-formed config values! 
                 result = value.split(",")
         return result
