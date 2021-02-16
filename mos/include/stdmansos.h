@@ -35,35 +35,46 @@
 #include <i2c.h>
 #include <spi.h>
 #include <light.h>
+
 #if USE_HUMIDITY
 #include <humidity.h>
 #endif
+
 #if USE_ACCEL
 #include <accel.h>
 #endif
+
 #ifdef USE_ADC
 #include <analog.h>
 #endif
+
 #ifdef USE_LEDS
 #include <leds.h>
 #endif
+
 #ifdef USE_RADIO
 #include <radio.h>
 #endif
+
 #ifdef USE_SERIAL
 #include <serial.h>
 #endif
+
 #ifdef USE_EXT_FLASH
 #include <extflash.h>
 #endif
+
 #include <delay.h>
 #include <errors.h>
+
 #ifdef USE_PRINT
 #include <print.h>
 #endif
+
 #ifdef USE_ADDRESSING
 #include <net/address.h>
 #endif
+
 #ifdef USE_PROTOTHREADS
 #include <kernel/protothreads/process.h>
 #include <kernel/protothreads/autostart.h>
@@ -72,8 +83,10 @@
 #include <kernel/protothreads/radio-process.h>
 #endif
 #endif
+
 #include <utils.h>
 #include <random.h>
+
 #if MANSOS_STDIO
 #include <fatfs/posix-stdio.h>
 #endif
