@@ -264,7 +264,7 @@ int main(void)
 #ifdef USE_PROTOTHREADS
     startProtoSched();
 #else
-    MESSAGE("Not using threads");
+    // MESSAGE("Not using threads");
     appMain();
 #endif
 

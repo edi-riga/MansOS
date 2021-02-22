@@ -86,7 +86,7 @@ void serialEnableRX( uint8_t id )
 
     if (!rxEnabled[id]) {
         rxEnabled[id] = true;
-        pthread_create(&rxThread, NULL, rxHandler, (void *) (uint32_t) id);
+        pthread_create(&rxThread, NULL, rxHandler, (void *) (uint64_t) id);
     }
 }
 
@@ -103,7 +103,7 @@ void serialDisableRX( uint8_t id )
 // simulate serial rx in a separate thread
 static void *rxHandler(void *arg)
 {
-    uint8_t id = (uint8_t) (uint32_t) arg;
+    uint8_t id = (uint8_t) (uint64_t) arg;
 
     while (rxEnabled[id]) {
         fd_set rfds;

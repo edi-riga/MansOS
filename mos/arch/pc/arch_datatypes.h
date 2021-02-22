@@ -38,10 +38,11 @@ typedef int int_t;
 #endif
 
 // storage for status register (simulated)
-typedef uint16_t Handle_t;
+typedef uint16_t Handle_t __attribute__((unused));
 
 // physical address (simulated) type
-typedef uint32_t MemoryAddress_t;
+// typedef uint32_t MemoryAddress_t;
+typedef void * MemoryAddress_t;
 
 // Unsigned type large enough for holding flash address range
 typedef uint16_t FlashAddress_t;
