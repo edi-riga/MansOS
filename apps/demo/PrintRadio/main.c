@@ -27,8 +27,12 @@
 
 #include "stdmansos.h"
 
+#define HELLO "Hello world"
+
 static uint8_t radioBuffer[RADIO_MAX_PACKET];
-static char serialBuffer[250];
+
+#define SERIAL_BUF_LEN 250
+static char serialBuffer[SERIAL_BUF_LEN];
 
 void recvRadio(void)
 {
@@ -46,7 +50,13 @@ void recvRadio(void)
 }
 
 void recvSerial(uint8_t length) {
-    PRINTF(serialBuffer);
+    // Buffer sanity check first
+    if (length >= SERIAL_BUF_LEN) {
+        length = SERIAL_BUF_LEN-1
+    }
+    // Ensure terminating zero
+    serialBuffer[length] = '\0';  
+    PRINTF("%s", serialBuffer);
     if (serialBuffer[length - 1] != '\n') {
         // print newline as well
         PRINTF("\n");
@@ -65,7 +75,7 @@ void appMain(void)
     PRINTF("Forwarder started...\n");
 
     while (1) {
-        radioSend("hello world", sizeof("hello world"));
+        radioSend(HELLO, sizeof(HELLO));
         redLedToggle();
         mdelay(1000);
     }
