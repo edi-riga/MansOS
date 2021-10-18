@@ -34,6 +34,7 @@
 void adcInit(void)
 {
     hplAdcInit();
+    hplAdcUseSupplyRef();
 
     // XXX: needed for lynx board to work without specific initialization
 #if 0
