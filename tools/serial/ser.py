@@ -52,7 +52,7 @@ def listenSerial():
         # write
         if writeBuffer:
             for c in writeBuffer:
-                ser.write(bytearray([c]))
+                ser.write(bytearray([ord(c)]))
             writeBuffer = ""
         # read
         serLen = ser.inWaiting()
