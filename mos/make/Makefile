@@ -480,4 +480,7 @@ python-serial.python.3 := python3-serial
 python-serial := ${python-serial.python.${python_version_major}}
 
 setupbase:
-	sudo apt-get install python-wxtools python-ply ${python-serial}
+#	sudo apt-get install python-wxtools python-ply ${python-serial}
+	sudo apt install python3 python3-pip
+	pip3 install pyserial ply wxtools
+
