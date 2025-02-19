@@ -49,10 +49,11 @@ void recvRadio(void)
     }
 }
 
-void recvSerial(uint8_t length) {
+void recvSerial(uint8_t length) 
+{
     // Buffer sanity check first
     if (length >= SERIAL_BUF_LEN) {
-        length = SERIAL_BUF_LEN-1
+        length = SERIAL_BUF_LEN-1;
     }
     // Ensure terminating zero
     serialBuffer[length] = '\0';  
