@@ -33,10 +33,14 @@
 //===========================================================
 //  Macros
 //===========================================================
+// Note, the double indirection_ is so that the parameters 
+// (e.g.portnum) could also be defined as macros
 
+#define PORT_AS_OUTPUT(portnum)  PORT_AS_OUTPUT_(portnum)
+#define PORT_AS_OUTPUT_(portnum)  P##portnum##DIR = 0xff
 
-#define PORT_AS_OUTPUT(portnum)  P##portnum##DIR = 0xff
-#define PORT_AS_INPUT(portnum)   P##portnum##DIR = 0x00
+#define PORT_AS_INPUT(portnum)   PORT_AS_INPUT_(portnum)
+#define PORT_AS_INPUT_(portnum)   P##portnum##DIR = 0x00
 
 #define PIN_AS_OUTPUT(portnum, pinnum)   \
   (P##portnum##DIR |= (1 << (pinnum)))
@@ -52,9 +56,11 @@
 
 
 
-#define PORT_READ(portnum) P##portnum##OUT
+#define PORT_READ(portnum) PORT_READ_(portnum)
+#define PORT_READ_(portnum) P##portnum##OUT
 
-#define PORT_WRITE(portnum, val) P##portnum##OUT = (val)
+#define PORT_WRITE(portnum, val) PORT_WRITE_(portnum, val)
+#define PORT_WRITE_(portnum, val) P##portnum##OUT = (val)
 
 #define PIN_READ(portnum, pinnum) \
     ((P##portnum##IN & (1 << (pinnum))) ? 1 : 0)
