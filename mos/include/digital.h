@@ -163,6 +163,8 @@
     static inline void name##High(void)      { pinWrite( port, pin, 1); }  \
     static inline void name##Low(void)       { pinWrite( port, pin, 0); }  \
     static inline void name##Toggle(void)    { pinToggle( port, pin ); }   \
+    static inline void name##AsOutputWrite(uint8_t val)  \
+      { pinAsOutput( port, pin ); pinWrite( port, pin, ((val)?1:0) ); } \
 
 
 // include the platform-specific header
