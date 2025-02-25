@@ -38,7 +38,7 @@
 // Variables
 //===========================================================
 
-volatile Serial_t serial[SERIAL_COUNT];
+//volatile Serial_t serial[SERIAL_COUNT];
 
 SerialCallback_t serialRecvCb[SERIAL_COUNT];
 
