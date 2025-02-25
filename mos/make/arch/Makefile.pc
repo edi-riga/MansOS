@@ -89,13 +89,14 @@ size: build
 	$(_QUIET) size $(OUTDIR)/$(EXECUTABLE)
 
 # FIXME: Setup is OS agnostic, assumes linux (Ubuntu, debian)
-setup: setupbase setup-pc
+setup: setupbase_about setup-pc_about yesno setupbase setup-pc
 	$(Print) ""
 	$(Print) "===== Setup for $(PLATFORM) : $(ARCH) architecture is done. ====="
 	$(Print) ""
 
-#   $(error Setup done.)
+setup-pc_about:
+	@echo ">>> sudo apt install build-essential gcc"
 
 setup-pc:
-	sudo apt-get install build-essential gcc
+	sudo apt install build-essential gcc
 

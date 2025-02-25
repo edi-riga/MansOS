@@ -479,8 +479,14 @@ python-serial.python.2 := python-serial
 python-serial.python.3 := python3-serial
 python-serial := ${python-serial.python.${python_version_major}}
 
-setupbase:
-#	sudo apt-get install python-wxtools python-ply ${python-serial}
-	sudo apt install python3 python3-pip
-	pip3 install pyserial ply wxtools
+setupbase_about:
+	@echo "About to run:"
+	@echo ">>> sudo apt install python3 python3-ply python3-serial"
+#	@echo ">>> pip3 install wxtools"
 
+setupbase:
+	sudo apt install python3 python3-ply python3-serial
+#	pip3 install wxtools
+
+yesno:
+	@echo -n "Are you sure? [y/N] " && read ans && [ $${ans:-N} = y ]
