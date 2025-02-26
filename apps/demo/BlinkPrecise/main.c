@@ -32,14 +32,14 @@
 #define PERIOD 5000ul // milliseconds
 
 uint32_t nextPeriod;
-Alarm_t alarm;
+Alarm_t alarm1;
 
 void onAlarm(void *x) {
    redLedToggle();
 
    // schedule the next alarm *exactly* 1000 milliseconds after this one
    nextPeriod += PERIOD;
-   alarmSchedule(&alarm, nextPeriod - getJiffies());
+   alarmSchedule(&alarm1, nextPeriod - getJiffies());
 }
 
 void appMain(void)
@@ -47,10 +47,10 @@ void appMain(void)
     redLedToggle();
 
     // initialize and schedule the alarm
-    alarmInit(&alarm, onAlarm, NULL);
+    alarmInit(&alarm1, onAlarm, NULL);
     nextPeriod = PERIOD;
     // jiffie counter starts from 0 (zero) after reset
-    alarmSchedule(&alarm, PERIOD - getJiffies());
+    alarmSchedule(&alarm1, PERIOD - getJiffies());
 
 
     // enter infinite low-power loop
